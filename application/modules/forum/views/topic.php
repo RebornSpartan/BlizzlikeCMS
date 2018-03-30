@@ -56,9 +56,7 @@
                 <?php if($this->m_data->isLogged()) { ?>
                     <?php if($this->forum_model->getSpecifyPostAuthor($idlink) == $this->session->userdata('fx_sess_id')) { ?>
                         <span class="uk-align-right">
-                            <a href="#" uk-toggle="target: #editTopic">
-                                <button class="uk-button uk-button-primary"><i class="far fa-edit"></i> <?= $this->lang->line('button_edit_topic'); ?></button>
-                            </a>
+                            <a href="#" class="uk-button uk-button-primary" uk-toggle="target: #editTopic"><i class="far fa-edit"></i> <?= $this->lang->line('button_edit_topic'); ?></a>
                         </span>
                     <?php } ?>
                 <?php } ?>

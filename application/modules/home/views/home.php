@@ -1,6 +1,6 @@
     <header id="top-head">
         <?php if($this->m_modules->getStatusSlides()): ?>
-            <?php if($this->home_model->getSlides()->num_rows()): ?>                
+            <?php if($this->home_model->getSlides()->num_rows()): ?>
                 <div class="uk-position-relative uk-visible-toggle uk-light" uk-slideshow="animation: fade; autoplay: true; autoplay-interval: 5000; min-height: 200; max-height: 400;">
                     <ul class="uk-slideshow-items">
                         <?php foreach ($slides as $slides): ?>
@@ -24,7 +24,7 @@
             <?php if ($this->m_modules->getStatusNews()): ?>
                 <div class="uk-width-2-3@l">
                     <p class="uk-h3 uk-text-white"><i class="far fa-newspaper"></i> {home_latest_news}</p>
-                    <div class="Divider Divider--light"></div>
+                    <div class="uk-mod-divider uk-mod-divider-light"></div>
                     <?php foreach ($principalNew as $principalNew): ?>
                         <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
                             <div class="uk-card-media-left uk-cover-container">
@@ -75,7 +75,7 @@
                             <?php endif ?>
                         </h4>
                     </div>
-                    <div class="Divider Divider--light"></div>
+                    <div class="uk-mod-divider uk-mod-divider-light"></div>
                     <ul uk-accordion="multiple: true">
                         <?php foreach ($realmsList as $charsMultiRealm): 
                             $multiRealm = $this->m_data->getRealmConnectionData($charsMultiRealm->id);
@@ -117,7 +117,7 @@
                 <?php if ($this->m_modules->getStatusDiscordExperimental() == '1'): ?>
                     <div class="uk-card uk-width-1-1@m">
                         <p class="uk-h3 uk-text-white"><i class="fab fa-discord"></i> Discord</p>
-                        <div class="Divider Divider--light"></div>
+                        <div class="uk-mod-divider uk-mod-divider-light"></div>
                         <div class="uk-text-center">
                             <br>
                             <a target="_blank" href="{conf_discordurl}{discord_code}" class="uk-h3 uk-text-white">
@@ -136,7 +136,7 @@
                 <?php if ($this->m_modules->getStatusDiscordClassic() == '1'): ?>
                     <div class="uk-card uk-width-1-1@m">
                         <p class="uk-h3 uk-text-white"><i class="fab fa-discord"></i> Discord</p>
-                        <div class="Divider Divider--light"></div>
+                        <div class="uk-mod-divider uk-mod-divider-light"></div>
                         <div class="uk-text-center">
                             <br>
                             <iframe src="{conf_discordwidget}{discord_id}&theme={conf_discordtheme}" width="{discord_width_class}" height="{discord_height_class}" {discord_extras}></iframe>
@@ -147,7 +147,7 @@
             <?php if($this->m_modules->getStatusStore() == '1'): ?>
                 <div class="uk-width-1-1@l">
                     <p class="uk-h3 uk-text-white"><i class="fas fa-shopping-bag"></i> {home_store_top}</p>
-                    <div class="Divider Divider--light"></div>
+                    <div class="uk-mod-divider uk-mod-divider-light"></div>
                     <br>
                     <div uk-slider>
                         <div class="uk-position-relative uk-visible-toggle uk-light">

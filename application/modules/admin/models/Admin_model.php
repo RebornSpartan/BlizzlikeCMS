@@ -308,8 +308,8 @@ class Admin_model extends CI_Model {
 
     public function getRemoveADMRank($id)
     {
-        $this->db->where('id', $id)
-                ->delete('fx_ranks');
+        $this->db->where('iduser', $id)
+                ->delete('fx_users_permission');
 
         $date 	= $this->m_data->getTimestamp();
         $reason = $this->lang->line('remove_addmAnnoW');

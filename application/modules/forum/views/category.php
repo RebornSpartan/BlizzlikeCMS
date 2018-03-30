@@ -26,9 +26,7 @@
                 <div class="uk-principal-title uk-text-white"><?= $this->forum_model->getCategoryName($idlink); ?></div>
                 <?php if($this->m_data->isLogged()) { ?>
                     <span class="uk-align-right">
-                        <a href="#" uk-toggle="target: #newTopic">
-                            <button class="uk-button uk-button-primary"><i class="fas fa-pencil-alt"></i> <?= $this->lang->line('button_new_topic'); ?></button>
-                        </a>
+                        <a href="#" class="uk-button uk-button-primary" uk-toggle="target: #newTopic"><i class="fas fa-pencil-alt"></i> <?= $this->lang->line('button_new_topic'); ?></a>
                     </span>
                 <?php } ?>
                 <p class="uk-text-uppercase uk-text-bold uk-text-white"><?= $this->lang->line('forum_topic_list'); ?></p>

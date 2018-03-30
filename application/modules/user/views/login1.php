@@ -32,9 +32,7 @@
                     </div>
                     <?= form_submit($submit_form); ?>
                 <hr>
-                <a href="<?= base_url('register'); ?>">
-                    <button class="uk-button uk-button-secondary uk-width-1-1" name="<?= $this->lang->line('no_account'); ?>"><i class="fas fa-user-plus"></i> <?= $this->lang->line('button_account_create'); ?></button>
-                </a>
+                <a href="<?= base_url('register'); ?>" class="uk-button uk-button-secondary uk-width-1-1" name="<?= $this->lang->line('no_account'); ?>"><i class="fas fa-user-plus"></i> <?= $this->lang->line('button_account_create'); ?></a>
             </div>
             <div class="uk-width-1-5@l"></div>
         </div>

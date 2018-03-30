@@ -393,7 +393,7 @@ class Admin extends MX_Controller {
         if (is_null($id) || empty($id))
             redirect(base_url(),'refresh');
 
-        if ($this->admin_model->getGeneralPagesSpecifyRows($id) < 1)
+        if ($this->admin_model->getPagesSpecifyRows($id) < 1)
             redirect(base_url(),'refresh');
 
         $data['idlink'] = $id;

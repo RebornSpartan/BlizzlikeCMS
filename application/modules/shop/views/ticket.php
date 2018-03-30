@@ -55,9 +55,7 @@
                 <?php if ($this->m_data->isLogged()) { ?>
                     <div class="space-adaptive-small"></div>
                     <div class="uk-margin uk-text-center">
-                        <a uk-toggle="target: #newTicket">
-                            <button class="uk-button uk-button-primary"><i class="fas fa-pencil-alt"></i> <?= $this->lang->line('button_create_ticket'); ?></button>
-                        </a>
+                        <a class="uk-button uk-button-primary" uk-toggle="target: #newTicket"><i class="fas fa-pencil-alt"></i> <?= $this->lang->line('button_create_ticket'); ?></a>
                     </div>
                 <?php } ?>
             </div>

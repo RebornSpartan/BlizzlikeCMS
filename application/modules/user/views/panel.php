@@ -31,9 +31,9 @@
                     {
                         if ($this->m_general->getExpansionAction() == 1)
                         {
-                            $compare = $this->fx_encrypts->Account($this->session->userdata('fx_sess_username'), $oldpass);
+                            $compare = $this->m_data->Account($this->session->userdata('fx_sess_username'), $oldpass);
 
-                            $newpassI = $this->fx_encrypts->Account($this->session->userdata('fx_sess_username'), $newpass);
+                            $newpassI = $this->m_data->Account($this->session->userdata('fx_sess_username'), $newpass);
 
                             if ($this->m_data->getPasswordAccountID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
                             {
@@ -49,11 +49,11 @@
                         }
                         else if ($this->m_general->getExpansionAction() == 2)
                         {
-                            $compare = $this->fx_encrypts->Battlenet($this->session->userdata('fx_sess_email'), $oldpass);
+                            $compare = $this->m_data->Battlenet($this->session->userdata('fx_sess_email'), $oldpass);
 
-                            $newpassI = $this->fx_encrypts->Account($this->session->userdata('fx_sess_username'), $newpass);
+                            $newpassI = $this->m_data->Account($this->session->userdata('fx_sess_username'), $newpass);
 
-                            $newpassII = $this->fx_encrypts->Battlenet($this->session->userdata('fx_sess_email'), $newpass);
+                            $newpassII = $this->m_data->Battlenet($this->session->userdata('fx_sess_email'), $newpass);
 
                             if ($this->m_data->getPasswordBnetID($this->session->userdata('fx_sess_id')) == strtoupper($compare))
                             {
@@ -81,7 +81,7 @@
 
                     if ($this->m_general->getExpansionAction() == 1)
                     {
-                        $compare = $this->fx_encrypts->Account($this->session->userdata('fx_sess_username'), $password);
+                        $compare = $this->m_data->Account($this->session->userdata('fx_sess_username'), $password);
 
                         if (strtoupper($this->session->userdata('fx_sess_email')) == strtoupper($oldemail))
                         {
@@ -97,9 +97,9 @@
                     }
                     else if ($this->m_general->getExpansionAction() == 2)
                     {
-                        $compare = $this->fx_encrypts->Battlenet($this->session->userdata('fx_sess_email'), $password);
+                        $compare = $this->m_data->Battlenet($this->session->userdata('fx_sess_email'), $password);
 
-                        $newpasscompare = $this->fx_encrypts->Battlenet($newemail, $password);
+                        $newpasscompare = $this->m_data->Battlenet($newemail, $password);
 
                         if ($this->user_model->getExistEmail(strtoupper($newemail)) > 0)
                             echo '<div class="uk-alert-warning" uk-alert><a class="uk-alert-close" uk-close></a><p class="uk-text-center"><i class="fas fa-exclamation-circle"></i> '.$this->lang->line('email_used').'</p></div>';
@@ -154,60 +154,42 @@
                     <div class="uk-column-1-2">
                         <?php if($this->m_modules->getVote() == '1') { ?>
                             <div>
-                                <a href="<?= base_url('vote'); ?>">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-star"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
-                                </a>
+                                <a href="<?= base_url('vote'); ?>" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-star"></i> <?= $this->lang->line('button_vote_panel'); ?></a>
                             </div>
                         <?php } else { ?>
                             <div>
-                                <a href="<?= base_url('vote'); ?>" class="uk-disabled">
-                                    <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-star"></i> <?= $this->lang->line('button_vote_panel'); ?></button>
-                                </a>
+                                <a href="<?= base_url('vote'); ?>" class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom uk-disabled"><i class="fas fa-star"></i> <?= $this->lang->line('button_vote_panel'); ?></a>
                             </div>
                         <?php } ?>
                         <?php if($this->m_modules->getDonation() == '1') { ?>
                             <div>
-                                <a href="<?= base_url('donate'); ?>">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="far fa-credit-card"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
-                                </a>
+                                <a href="<?= base_url('donate'); ?>" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="far fa-credit-card"></i> <?= $this->lang->line('button_donate_panel'); ?></a>
                             </div>
                         <?php } else { ?>
                             <div>
-                                <a href="<?= base_url('donate'); ?>" class="uk-disabled">
-                                    <button class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom"><i class="far fa-credit-card"></i> <?= $this->lang->line('button_donate_panel'); ?></button>
-                                </a>
+                                <a href="<?= base_url('donate'); ?>" class="uk-button uk-button-secondary uk-width-1-1 uk-margin-small-bottom uk-disabled"><i class="far fa-credit-card"></i> <?= $this->lang->line('button_donate_panel'); ?></a>
                             </div>
                         <?php } ?>
                     </div>
                     <div class="uk-column-1-2">
                         <div>
-                            <a href="">
-                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-ticket-alt"></i> <?= $this->lang->line('button_support'); ?></button>
-                            </a>
+                            <a href="" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-ticket-alt"></i> <?= $this->lang->line('button_support'); ?></a>
                         </div>
                         <div>
                             <?php if($this->user_model->getExistInfo()->num_rows()) { ?>
-                                <a href="#" uk-toggle="target: #avatars">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-camera"></i> <?= $this->lang->line('button_change_avatar'); ?></button>
-                                </a>
+                                <a href="#" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" uk-toggle="target: #avatars"><i class="fas fa-camera"></i> <?= $this->lang->line('button_change_avatar'); ?></a>
                             <?php } ?>
                             <?php if(!$this->user_model->getExistInfo()->num_rows()) { ?>
-                                <a href="#" uk-toggle="target: #personalinfo">
-                                    <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="far fa-user-circle"></i> <?= $this->lang->line('button_add_personal_info'); ?></button>
-                                </a>
+                                <a href="#" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" uk-toggle="target: #personalinfo"><i class="far fa-user-circle"></i> <?= $this->lang->line('button_add_personal_info'); ?></a>
                             <?php } ?>
                         </div>
                     </div>
                     <div class="uk-column-1-2">
                         <div>
-                            <a href="#" uk-toggle="target: #changePassword">
-                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="fas fa-key"></i> <?= $this->lang->line('button_change_password'); ?></button>
-                            </a>
+                            <a href="#" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" uk-toggle="target: #changePassword"><i class="fas fa-key"></i> <?= $this->lang->line('button_change_password'); ?></a>
                         </div>
                         <div>
-                            <a href="#" uk-toggle="target: #changeEmail">
-                                <button class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom"><i class="far fa-envelope"></i> <?= $this->lang->line('button_change_email'); ?></button>
-                            </a>
+                            <a href="#" class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom" uk-toggle="target: #changeEmail"><i class="far fa-envelope"></i> <?= $this->lang->line('button_change_email'); ?></a>
                         </div>
                     </div>
                     <hr class="uk-divider-icon">

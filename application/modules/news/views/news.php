@@ -35,7 +35,7 @@
             <div class="uk-width-1-6@l"></div>
             <div class="uk-width-4-6@l">
                 <div class="uk-h3 uk-text-uppercase uk-text-white"><i class="far fa-newspaper"></i> <?= $this->lang->line('news_recent_list'); ?></div>
-                <div class="Divider Divider--light"></div>
+                <div class="uk-mod-divider uk-mod-divider-light"></div>
                 <?php if ($this->news_model->getNewsList()->num_rows()) { ?>
                     <?php foreach($this->news_model->getNewsList()->result() as $list) { ?>
                         <a href="<?= base_url(); ?>news/<?= $list->id ?>">

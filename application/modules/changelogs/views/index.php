@@ -5,7 +5,7 @@
                 <div class="uk-width-1-6@l"></div>
                 <div class="uk-width-4-6@l">
                     <div class="uk-h3 uk-text-uppercase uk-text-white"><i class="fas fa-spinner fa-pulse"></i> <?= $this->lang->line('changelogs_recent_article'); ?></div>
-                    <div class="Divider Divider--light"></div>
+                    <div class="uk-mod-divider uk-mod-divider-light"></div>
                     <div class="uk-card uk-card-default uk-card-hover uk-grid-collapse uk-child-width-1-2@s uk-margin uk-animation-fade" uk-grid>
                         <div class="uk-card-media-left uk-cover-container uk-overflow-hidden">
                             <img src="<?= base_url(); ?>assets/images/changelogs/<?= $this->changelogs_model->getChanglogImage($this->changelogs_model->getLastID()); ?>" alt="" uk-cover>

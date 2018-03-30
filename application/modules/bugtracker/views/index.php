@@ -7,9 +7,7 @@
                 <div class="uk-principal-title uk-text-white"><i class="fas fa-bug"></i> <?= $this->lang->line('nav_bugtracker'); ?></div>
                 <?php if ($this->m_data->isLogged()) { ?>
                     <span class="uk-align-right">
-                        <a href="#" uk-toggle="target: #createReport">
-                            <button class="uk-button uk-button-primary"><i class="fas fa-pencil-alt"></i> <?= $this->lang->line('button_create_report'); ?></button>
-                        </a>
+                        <a href="#" class="uk-button uk-button-primary" uk-toggle="target: #createReport"><i class="fas fa-pencil-alt"></i> <?= $this->lang->line('button_create_report'); ?></a>
                     </span>
                 <?php } ?>
                 <p class="uk-text-uppercase uk-text-bold uk-text-white"><?= $this->lang->line('bugtracker_report_list'); ?></p>

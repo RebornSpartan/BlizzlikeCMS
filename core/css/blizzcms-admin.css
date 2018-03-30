@@ -1,3 +1,12 @@
+/*!-----------------------------------------------------------------
+    Admin CSS
+    Version: 0.0.1
+    Author: BlizzCMS
+    Copyright 2018
+-------------------------------------------------------------------*/
+/*!-----------------------------------------------------------------
+                            UI MOD
+-------------------------------------------------------------------*/
 @font-face{font-family:'Lobster';font-style:normal;font-weight:400;src:local("Lobster Regular"),local("Lobster-Regular"),url("../../core/fonts/Lobster-Regular.ttf") format("truetype")}
 
 #top-head{z-index: 9;top: 0;left:0;right:0;}
@@ -15,6 +24,9 @@
 .uk-card{-webkit-transition: box-shadow 0.5s ease-out;transition: box-shadow 0.5s ease-out;}
 .uk-logo{font-family:'Lobster' !important;font-size:35px !important;color: #ffffff !important;}
 
+/*!-----------------------------------------------------------------
+                            Footer
+-------------------------------------------------------------------*/
 .heartbeat{position: absolute;width: 26px;height: 26px;animation: heartbeat 1s infinite;margin: (-26px/2) 0px 0px (-26px/2);text-align: center;line-height: 26px;font-size: 26px;color: #a335ee;cursor: default;}
 @keyframes heartbeat{
 0% { transform: scale(.75, .75); }
